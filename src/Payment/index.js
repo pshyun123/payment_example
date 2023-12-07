@@ -5,7 +5,7 @@ const Payment = () => {
     const jquery = document.createElement("script");
     jquery.src = "https://code.jquery.com/jquery-1.12.4.min.js";
     const iamport = document.createElement("script");
-    iamport.src = "https://cdn.iamport.kr/js/iamport.payment-1.1.7.js";
+    iamport.src = "https://cdn.iamport.kr/js/iamport.payment-1.1.8.js";
     document.head.appendChild(jquery);
     document.head.appendChild(iamport);
 
@@ -20,17 +20,18 @@ const Payment = () => {
     IMP.init("imp78148083");
 
     const data = {
-      // pg: "tosspay",
-      pg: "kakaopay",
+      // pg: "tosspay",// 토스페이 간편결제
+      // pg: "kakaopay", // 카카오페이 간편결제
+      pg: "kcp.AO09C", // NHN KCP 결제 방식 사용
       pay_method: "card",
       merchant_uid: `mid_${new Date().getTime()}`,
       amount: "2900",
       name: "결제 테스트",
       buyer_name: "홍길동",
-      buyer_tel: "01012345678",
+      // buyer_tel: "01012345678",
       buyer_email: "14279625@gmail.com",
       buyer_addr: "구천면로 000-00",
-      buyer_postcode: "01234",
+      // buyer_postcode: "01234",
     };
 
     IMP.request_pay(data, callback);
